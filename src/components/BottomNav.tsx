@@ -1,4 +1,4 @@
-import { Home, BookOpen, MessageSquare, BarChart3, User } from "lucide-react";
+import { Home, BookOpen, MessageSquare, BarChart3, Sparkles } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export const BottomNav = () => {
@@ -6,10 +6,10 @@ export const BottomNav = () => {
   
   const navItems = [
     { icon: Home, label: "Home", path: "/" },
-    { icon: BookOpen, label: "Study", path: "/study" },
+    { icon: BookOpen, label: "Learn", path: "/quizzes" },
     { icon: MessageSquare, label: "AI Tutor", path: "/tutor" },
+    { icon: Sparkles, label: "Planner", path: "/planner" },
     { icon: BarChart3, label: "Progress", path: "/progress" },
-    { icon: User, label: "Profile", path: "/profile" },
   ];
 
   return (

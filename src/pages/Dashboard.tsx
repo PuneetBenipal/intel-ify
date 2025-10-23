@@ -1,11 +1,34 @@
-import { Brain, BookOpen, Trophy, TrendingUp, Target, Zap, ArrowRight, Clock } from "lucide-react";
+import { Brain, BookOpen, Trophy, TrendingUp, Target, Zap, ArrowRight, Clock, Sparkles, CreditCard } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import { StatCard } from "@/components/StatCard";
 import { ProgressRing } from "@/components/ProgressRing";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 
+interface User {
+  id: string;
+  name: string;
+  currentStreak: number;
+  totalStudyHours: number;
+}
+
+interface Progress {
+  subject: string;
+  mastery: number;
+}
+
 export const Dashboard = () => {
+  const navigate = useNavigate();
+  
+  const { data: user } = useQuery<User>({
+    queryKey: ["/api/user"],
+  });
+  
+  const { data: progress = [] } = useQuery<Progress[]>({
+    queryKey: ["/api/progress"],
+  });
   return (
     <div className="min-h-screen pb-24 md:pb-8 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -17,10 +40,10 @@ export const Dashboard = () => {
           
           <div className="relative z-10 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 animate-fade-in">
-              Welcome back, Alex!
+              Welcome back, {user?.name || 'Student'}!
             </h2>
             <p className="text-lg text-primary-foreground/90 mb-6 animate-fade-in">
-              You're on a 7-day streak 🔥
+              You're on a {user?.currentStreak || 0}-day streak 🔥
             </p>
             <Button 
               size="lg" 
@@ -36,7 +59,7 @@ export const Dashboard = () => {
         <section className="grid grid-cols-2 lg:grid-cols-4 gap-4 px-4 mb-6">
           <StatCard
             title="Study Hours"
-            value="24.5"
+            value={user?.totalStudyHours?.toFixed(1) || "0"}
             icon={BookOpen}
             trend="+12%"
             color="primary"
@@ -50,14 +73,14 @@ export const Dashboard = () => {
           />
           <StatCard
             title="Mastery Score"
-            value="87%"
+            value={progress.length > 0 ? `${Math.round(progress.reduce((acc, p) => acc + p.mastery, 0) / progress.length)}%` : "0%"}
             icon={Trophy}
             trend="+5%"
             color="success"
           />
           <StatCard
             title="Current Streak"
-            value="7"
+            value={user?.currentStreak || 0}
             icon={Zap}
             color="warning"
           />
@@ -170,24 +193,50 @@ export const Dashboard = () => {
         <section className="px-4 mb-6">
           <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
           <div className="grid grid-cols-2 gap-3">
-            {[
-              { icon: Brain, label: "AI Study Plan", color: "primary", gradient: "bg-gradient-primary" },
-              { icon: Target, label: "Take Quiz", color: "secondary", gradient: "bg-gradient-accent" },
-              { icon: BookOpen, label: "Flashcards", color: "success", gradient: "bg-gradient-accent" },
-              { icon: TrendingUp, label: "View Progress", color: "warning", gradient: "bg-gradient-secondary" }
-            ].map((action, idx) => (
-              <Button 
-                key={idx}
-                variant="outline" 
-                className="h-28 flex-col gap-3 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
-                data-testid={`button-${action.label.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                <div className={`p-3 rounded-2xl ${action.gradient} group-hover:scale-110 transition-transform duration-300`}>
-                  <action.icon className="w-6 h-6 text-white" />
-                </div>
-                <span className="font-semibold text-sm">{action.label}</span>
-              </Button>
-            ))}
+            <Button 
+              onClick={() => navigate('/planner')}
+              variant="outline" 
+              className="h-28 flex-col gap-3 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
+              data-testid="button-ai-study-plan"
+            >
+              <div className="p-3 rounded-2xl bg-gradient-primary group-hover:scale-110 transition-transform duration-300">
+                <Brain className="w-6 h-6 text-white" />
+              </div>
+              <span className="font-semibold text-sm">AI Study Plan</span>
+            </Button>
+            <Button 
+              onClick={() => navigate('/quizzes')}
+              variant="outline" 
+              className="h-28 flex-col gap-3 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
+              data-testid="button-take-quiz"
+            >
+              <div className="p-3 rounded-2xl bg-gradient-accent group-hover:scale-110 transition-transform duration-300">
+                <Target className="w-6 h-6 text-white" />
+              </div>
+              <span className="font-semibold text-sm">Take Quiz</span>
+            </Button>
+            <Button 
+              onClick={() => navigate('/flashcards')}
+              variant="outline" 
+              className="h-28 flex-col gap-3 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
+              data-testid="button-flashcards"
+            >
+              <div className="p-3 rounded-2xl bg-gradient-accent group-hover:scale-110 transition-transform duration-300">
+                <CreditCard className="w-6 h-6 text-white" />
+              </div>
+              <span className="font-semibold text-sm">Flashcards</span>
+            </Button>
+            <Button 
+              onClick={() => navigate('/tutor')}
+              variant="outline" 
+              className="h-28 flex-col gap-3 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
+              data-testid="button-ai-tutor"
+            >
+              <div className="p-3 rounded-2xl bg-gradient-secondary group-hover:scale-110 transition-transform duration-300">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <span className="font-semibold text-sm">AI Tutor</span>
+            </Button>
           </div>
         </section>
       </div>
