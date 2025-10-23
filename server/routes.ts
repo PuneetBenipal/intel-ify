@@ -1,5 +1,5 @@
 import type { Express } from "express";
-import { storage } from "./storage";
+import { storage } from "./storage.js";
 import {
   insertUserSchema,
   insertStudyPlanSchema,
@@ -8,7 +8,7 @@ import {
   insertStudySessionSchema,
   sendMessageSchema,
   generateContentSchema,
-} from "../shared/schema";
+} from "../shared/schema.js";
 import {
   generateQuiz,
   generateFlashcards,
@@ -16,7 +16,7 @@ import {
   generateStudyPlan,
   chatWithTutor,
   extractTextFromImage,
-} from "./openai";
+} from "./openai.js";
 
 export function registerRoutes(app: Express) {
   // User routes

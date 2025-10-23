@@ -50,16 +50,21 @@ app.use((req, res, next) => {
   const isProduction = process.env.NODE_ENV === "production";
   
   if (!isProduction) {
-    const { setupVite } = await import("./vite");
+    const { setupVite } = await import("./vite.js");
     await setupVite(app);
   } else {
     const distPath = path.resolve(__dirname, "../dist");
     if (fs.existsSync(distPath)) {
       app.use(express.static(distPath));
-      app.get("*", (_req, res) => {
-        res.sendFile(path.resolve(distPath, "index.html"));
-      });
     }
+  }
+  
+  // SPA fallback - serve index.html for all non-API routes
+  if (isProduction) {
+    app.get(/^(?!\/api).*/, (_req, res) => {
+      const distPath = path.resolve(__dirname, "../dist");
+      res.sendFile(path.resolve(distPath, "index.html"));
+    });
   }
 
   // Error handling
