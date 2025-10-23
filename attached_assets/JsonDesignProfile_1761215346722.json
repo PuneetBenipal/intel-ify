@@ -1,0 +1,474 @@
+{
+  "designSystem": {
+    "metadata": {
+      "name": "Modern Mobile App Design System",
+      "version": "1.0",
+      "description": "A comprehensive design system extracted from contemporary mobile UI patterns, focusing on dashboards, analytics, and data visualization",
+      "targetPlatforms": ["iOS", "Android", "Mobile Web"]
+    },
+    "colorPalette": {
+      "themes": {
+        "dark": {
+          "primary": ["#000000", "#0A0A0A", "#1A1A1A"],
+          "accent": ["#00D9C0", "#00E5CC", "#4EFFEF"],
+          "accentSecondary": ["#6C63FF", "#8B5CF6", "#A78BFA"],
+          "background": ["#000000", "#0F0F0F", "#1C1C1C"],
+          "surface": ["#1A1A1A", "#252525", "#2A2A2A"],
+          "text": {
+            "primary": "#FFFFFF",
+            "secondary": "#A0A0A0",
+            "tertiary": "#666666"
+          },
+          "success": "#00E5CC",
+          "warning": "#FFB800",
+          "error": "#FF4444",
+          "info": "#00A3FF"
+        },
+        "light": {
+          "primary": ["#FFFFFF", "#F8F9FA", "#F1F3F5"],
+          "accent": ["#6C63FF", "#5B52E5", "#4A41CC"],
+          "accentSecondary": ["#00D9C0", "#FF6B9D", "#FFB800"],
+          "background": ["#FFFFFF", "#FAFBFC", "#F5F6F8"],
+          "surface": ["#FFFFFF", "#F8F9FA", "#E9ECEF"],
+          "text": {
+            "primary": "#000000",
+            "secondary": "#666666",
+            "tertiary": "#999999"
+          },
+          "success": "#00CC99",
+          "warning": "#FF9500",
+          "error": "#FF3B30",
+          "chartColors": ["#6C63FF", "#FF6B9D", "#00E5CC", "#FFB800"]
+        }
+      },
+      "gradients": [
+        "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        "linear-gradient(to right, #6C63FF, #8B7AFF)"
+      ]
+    },
+    "typography": {
+      "fontFamilies": {
+        "primary": "SF Pro Display, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
+        "secondary": "Inter, Helvetica Neue, Arial, sans-serif",
+        "monospace": "SF Mono, Menlo, Monaco, Courier New, monospace"
+      },
+      "scales": {
+        "display": {
+          "fontSize": "48px",
+          "lineHeight": "56px",
+          "fontWeight": "700",
+          "letterSpacing": "-0.02em"
+        },
+        "h1": {
+          "fontSize": "32px",
+          "lineHeight": "40px",
+          "fontWeight": "700",
+          "letterSpacing": "-0.01em"
+        },
+        "h2": {
+          "fontSize": "24px",
+          "lineHeight": "32px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.01em"
+        },
+        "h3": {
+          "fontSize": "20px",
+          "lineHeight": "28px",
+          "fontWeight": "600",
+          "letterSpacing": "0"
+        },
+        "body": {
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "fontWeight": "400",
+          "letterSpacing": "0"
+        },
+        "bodySmall": {
+          "fontSize": "14px",
+          "lineHeight": "20px",
+          "fontWeight": "400",
+          "letterSpacing": "0"
+        },
+        "caption": {
+          "fontSize": "12px",
+          "lineHeight": "16px",
+          "fontWeight": "500",
+          "letterSpacing": "0.01em"
+        },
+        "overline": {
+          "fontSize": "11px",
+          "lineHeight": "16px",
+          "fontWeight": "600",
+          "letterSpacing": "0.08em",
+          "textTransform": "uppercase"
+        }
+      }
+    },
+    "spacing": {
+      "scale": "4px base unit",
+      "values": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "32px",
+        "2xl": "48px",
+        "3xl": "64px"
+      },
+      "layout": {
+        "screenPadding": "16px",
+        "cardPadding": "16px",
+        "sectionSpacing": "24px",
+        "componentSpacing": "12px"
+      }
+    },
+    "borderRadius": {
+      "none": "0px",
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "24px",
+      "2xl": "32px",
+      "full": "9999px"
+    },
+    "shadows": {
+      "sm": "0 1px 2px rgba(0, 0, 0, 0.05)",
+      "md": "0 4px 6px rgba(0, 0, 0, 0.1)",
+      "lg": "0 10px 15px rgba(0, 0, 0, 0.1)",
+      "xl": "0 20px 25px rgba(0, 0, 0, 0.15)",
+      "card": "0 2px 8px rgba(0, 0, 0, 0.08)",
+      "darkCard": "0 4px 16px rgba(0, 0, 0, 0.4)",
+      "glow": "0 0 20px rgba(108, 99, 255, 0.3)"
+    },
+    "components": {
+      "cards": {
+        "default": {
+          "borderRadius": "16px",
+          "padding": "16px",
+          "shadow": "md",
+          "border": "1px solid rgba(255,255,255,0.1)",
+          "background": "surface"
+        },
+        "metric": {
+          "borderRadius": "12px",
+          "padding": "12px 16px",
+          "displayLabel": "caption, secondary text",
+          "displayValue": "h2, primary text",
+          "displayChange": "caption with icon, colored by sentiment"
+        },
+        "stat": {
+          "layout": "vertical stack",
+          "iconPosition": "left or top",
+          "valueSize": "h1 or h2",
+          "labelSize": "bodySmall or caption",
+          "showTrend": true
+        }
+      },
+      "buttons": {
+        "primary": {
+          "height": "48px",
+          "padding": "12px 24px",
+          "borderRadius": "24px (full)",
+          "fontSize": "16px",
+          "fontWeight": "600",
+          "background": "accent gradient or solid",
+          "hoverEffect": "scale(1.02) + brightness increase"
+        },
+        "secondary": {
+          "height": "48px",
+          "padding": "12px 24px",
+          "borderRadius": "24px",
+          "fontSize": "16px",
+          "fontWeight": "600",
+          "background": "transparent",
+          "border": "1px solid currentColor",
+          "opacity": "0.8"
+        },
+        "icon": {
+          "size": "40px",
+          "borderRadius": "full",
+          "background": "surface with opacity",
+          "iconSize": "20px"
+        },
+        "floating": {
+          "size": "56px",
+          "borderRadius": "full",
+          "shadow": "xl",
+          "position": "fixed bottom-right",
+          "background": "accent with gradient"
+        }
+      },
+      "inputs": {
+        "textField": {
+          "height": "48px",
+          "padding": "12px 16px",
+          "borderRadius": "12px",
+          "fontSize": "16px",
+          "background": "surface",
+          "border": "1px solid rgba(255,255,255,0.1)",
+          "focusBorder": "accent color",
+          "placeholderOpacity": "0.5"
+        },
+        "search": {
+          "height": "40px",
+          "borderRadius": "20px",
+          "iconPosition": "left",
+          "iconSize": "18px",
+          "padding": "8px 16px 8px 40px"
+        }
+      },
+      "charts": {
+        "lineChart": {
+          "strokeWidth": "2px",
+          "gradient": "from accent to transparent",
+          "gridLines": "subtle, 10% opacity",
+          "dataPointSize": "4px",
+          "smoothCurve": true
+        },
+        "barChart": {
+          "barRadius": "4px top corners",
+          "barSpacing": "8px",
+          "colors": "gradient or solid accent",
+          "groupSpacing": "16px"
+        },
+        "donutChart": {
+          "strokeWidth": "8px",
+          "innerRadius": "70%",
+          "centerContent": "value + label",
+          "segmentSpacing": "2px"
+        },
+        "progressRing": {
+          "strokeWidth": "8-12px",
+          "background": "rgba(255,255,255,0.1)",
+          "foreground": "accent gradient",
+          "animationDuration": "1s ease-out"
+        }
+      },
+      "lists": {
+        "listItem": {
+          "height": "64px",
+          "padding": "12px 16px",
+          "borderRadius": "8px",
+          "layout": "avatar/icon + content + action",
+          "avatarSize": "40px",
+          "spacing": "12px",
+          "hoverBackground": "surface with opacity"
+        },
+        "sectionHeader": {
+          "fontSize": "caption or overline",
+          "fontWeight": "600",
+          "color": "secondary text",
+          "textTransform": "uppercase",
+          "marginTop": "24px",
+          "marginBottom": "8px"
+        }
+      },
+      "navigation": {
+        "bottomNav": {
+          "height": "80px",
+          "background": "surface with blur",
+          "itemCount": "4-5",
+          "iconSize": "24px",
+          "spacing": "equal distribution",
+          "activeIndicator": "accent color or pill background"
+        },
+        "topBar": {
+          "height": "56px",
+          "padding": "0 16px",
+          "background": "transparent or surface",
+          "title": "h3, centered or left",
+          "actions": "icon buttons on right"
+        },
+        "tabs": {
+          "height": "48px",
+          "itemPadding": "12px 16px",
+          "fontSize": "14px",
+          "fontWeight": "600",
+          "activeIndicator": "underline or pill background",
+          "indicatorHeight": "2px",
+          "indicatorColor": "accent"
+        }
+      },
+      "avatars": {
+        "sizes": {
+          "sm": "32px",
+          "md": "40px",
+          "lg": "56px",
+          "xl": "80px"
+        },
+        "borderRadius": "full",
+        "border": "2px solid background",
+        "style": "3D illustrated or photo",
+        "groupSpacing": "-8px overlap"
+      },
+      "badges": {
+        "notification": {
+          "size": "20px",
+          "fontSize": "11px",
+          "fontWeight": "600",
+          "borderRadius": "full",
+          "background": "error or accent",
+          "position": "top-right offset",
+          "border": "2px solid background"
+        },
+        "status": {
+          "padding": "4px 12px",
+          "borderRadius": "full",
+          "fontSize": "12px",
+          "fontWeight": "600",
+          "background": "accent with opacity"
+        }
+      },
+      "modals": {
+        "overlay": {
+          "background": "rgba(0,0,0,0.6)",
+          "backdropBlur": "8px"
+        },
+        "container": {
+          "borderRadius": "24px top corners",
+          "padding": "24px",
+          "maxWidth": "400px",
+          "background": "surface",
+          "shadow": "2xl",
+          "animation": "slide up from bottom"
+        }
+      }
+    },
+    "layoutPatterns": {
+      "dashboard": {
+        "structure": "scrollable vertical stack",
+        "sections": [
+          "header with greeting + avatar",
+          "metric cards grid (2 columns)",
+          "chart section with title",
+          "list section with header",
+          "bottom navigation"
+        ],
+        "cardGrid": "2 columns on mobile, 3-4 on tablet",
+        "spacing": "16px between cards, 24px between sections"
+      },
+      "metricCards": {
+        "layout": "2x2 grid or horizontal scroll",
+        "cardSize": "flexible width, 80-100px height",
+        "content": "label + value + change indicator + mini chart",
+        "iconPosition": "top-left or inline with value"
+      },
+      "chartSection": {
+        "structure": "section title + time period selector + chart",
+        "chartHeight": "200-300px",
+        "padding": "16px",
+        "background": "card surface"
+      },
+      "listView": {
+        "structure": "section header + items",
+        "itemHeight": "64-72px",
+        "separators": "subtle 1px lines or spacing only",
+        "scrollBehavior": "smooth with momentum"
+      }
+    },
+    "animations": {
+      "duration": {
+        "fast": "150ms",
+        "normal": "300ms",
+        "slow": "500ms"
+      },
+      "easing": {
+        "standard": "cubic-bezier(0.4, 0.0, 0.2, 1)",
+        "decelerate": "cubic-bezier(0.0, 0.0, 0.2, 1)",
+        "accelerate": "cubic-bezier(0.4, 0.0, 1, 1)",
+        "spring": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+      },
+      "interactions": {
+        "tap": "scale(0.97) 100ms",
+        "hover": "scale(1.02) + brightness(1.1) 200ms",
+        "focus": "glow shadow 200ms",
+        "pageTransition": "slide + fade 300ms"
+      },
+      "chartAnimations": {
+        "entry": "draw from left or fade + scale up",
+        "duration": "800ms",
+        "stagger": "50ms between elements"
+      }
+    },
+    "designPrinciples": {
+      "visual": [
+        "High contrast between elements for clarity",
+        "Generous use of white/negative space",
+        "Rounded corners throughout (12-24px typical)",
+        "Subtle shadows for depth (avoid heavy shadows)",
+        "Glassmorphism effects for overlays (blur + opacity)",
+        "Gradient accents for visual interest",
+        "Consistent icon style (outlined or filled, not mixed)"
+      ],
+      "dataVisualization": [
+        "Color-coded metrics with sentiment (green=up, red=down)",
+        "Percentage changes shown with arrows or symbols",
+        "Mini charts for trend indication in cards",
+        "Large, readable numbers for primary metrics",
+        "Secondary information in lighter text",
+        "Progress rings for goal/completion tracking",
+        "Multi-colored bar charts for category comparison"
+      ],
+      "layout": [
+        "16px screen edge padding",
+        "12-16px spacing between elements",
+        "24px spacing between major sections",
+        "Sticky headers during scroll",
+        "Bottom sheet modals over full-screen",
+        "Floating action buttons for primary actions"
+      ],
+      "accessibility": [
+        "Minimum touch target: 44x44px",
+        "High contrast text (4.5:1 minimum)",
+        "Clear visual feedback for all interactions",
+        "Readable font sizes (minimum 14px body text)",
+        "Icon + text labels for navigation"
+      ]
+    },
+    "iconography": {
+      "style": "outlined or rounded solid",
+      "sizes": {
+        "sm": "16px",
+        "md": "20px",
+        "lg": "24px",
+        "xl": "32px"
+      },
+      "strokeWidth": "1.5-2px",
+      "usage": "consistent style throughout app",
+      "commonIcons": [
+        "home, charts, notifications, profile, settings",
+        "arrow-up/down for trends",
+        "calendar, clock for time",
+        "check, x for status"
+      ]
+    },
+    "illustrations": {
+      "style3D": {
+        "characters": "cartoon/stylized 3D avatars",
+        "colors": "pastel or vibrant gradients",
+        "lighting": "soft, top-down",
+        "background": "simple geometric shapes"
+      },
+      "emptyStates": {
+        "style": "minimal line art or 3D",
+        "size": "120-160px",
+        "placement": "centered vertically",
+        "accompaniment": "title + description + action button"
+      }
+    },
+    "responsiveBehavior": {
+      "breakpoints": {
+        "mobile": "320-428px",
+        "tablet": "768-1024px",
+        "desktop": "1024px+"
+      },
+      "adaptations": {
+        "mobile": "single column, stacked cards, bottom nav",
+        "tablet": "2-3 column grids, side nav possible",
+        "desktop": "multi-column layouts, larger cards"
+      }
+    }
+  }
+}
